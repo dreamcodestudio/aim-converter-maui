@@ -47,7 +47,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -57,9 +56,33 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\apex_ico.jpg" />
+	  <None Remove="Resources\Images\bf2042_ico.jpg" />
+	  <None Remove="Resources\Images\cod_ico.jpg" />
+	  <None Remove="Resources\Images\csgo_ico.jpg" />
+	  <None Remove="Resources\Images\escape_from_tarkov_ico.jpg" />
+	  <None Remove="Resources\Images\fornite_ico.jpg" />
+	  <None Remove="Resources\Images\quakechamp_ico.jpg" />
+	  <None Remove="Resources\Images\rainbow_six_siege_ico.jpg" />
+	  <None Remove="Resources\Images\valorant_ico.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\GameInfoView.xaml.cs">
+	    <DependentUpon>GameInfoView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\GameInfoView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
