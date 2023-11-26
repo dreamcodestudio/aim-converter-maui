@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AimConverter.Views.GameInfoView">
+
+    <Frame
+        CornerRadius="4"
+        BackgroundColor="#DD000000"
+        HeightRequest="200">
+        <VerticalStackLayout HorizontalOptions="Fill" VerticalOptions="Center">
+            <Image Source="apex_ico.jpg" />
+            <Label
+                Text="Apex Legends"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                TextColor="White"
+                Margin="0, 20, 0, 0"
+                FontSize="Medium" />
+        </VerticalStackLayout>
+    </Frame>
+</ContentView>
