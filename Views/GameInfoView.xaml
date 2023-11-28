@@ -7,11 +7,12 @@
     <Frame
         CornerRadius="4"
         BackgroundColor="#DD000000"
+        WidthRequest="320"
         HeightRequest="200">
         <VerticalStackLayout HorizontalOptions="Fill" VerticalOptions="Center">
-            <Image Source="apex_ico.jpg" />
+            <Image Source="{Binding Icon}" />
             <Label
-                Text="Apex Legends"
+                Text="{Binding Name}"
                 VerticalTextAlignment="Center"
                 HorizontalTextAlignment="Center"
                 TextColor="White"

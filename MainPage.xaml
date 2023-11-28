@@ -14,16 +14,44 @@
                 FontSize="Medium" />
         </HorizontalStackLayout>
     </Shell.TitleView>
-
-    <VerticalStackLayout>
-        <views:GameInfoView
-            Margin="0, 10, 0, 0" />
+        <VerticalStackLayout>
+        <CarouselView
+            ItemsSource="{Binding Games}"
+            HorizontalScrollBarVisibility="Never"
+            Loop="False">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout
+                    SnapPointsType="MandatorySingle"
+                    Orientation="Horizontal" />
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <views:GameInfoView
+                        Margin="0, 10, 0, 0" />
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
         <Entry
             Placeholder="Convert From Sensitivity"
             HorizontalOptions="Fill"
             HorizontalTextAlignment="Center"
             Margin="0, 40, 0, 40" />
-        <views:GameInfoView />
+        <CarouselView
+            ItemsSource="{Binding Games}"
+            HorizontalScrollBarVisibility="Never"
+            Loop="False">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout
+                    SnapPointsType="MandatorySingle"
+                    Orientation="Horizontal" />
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <views:GameInfoView
+                        Margin="0, 10, 0, 0" />
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
         <Label
             Text="0.000"
             HorizontalTextAlignment="Center"
