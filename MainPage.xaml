@@ -48,9 +48,9 @@
                Margin="0, 40, 0, 40">
             <Entry.Behaviors>
                 <toolkit:EventToCommandBehavior
-                    EventName="TextChanged"
+                    EventName="Completed"
                     Command="{Binding SourceSensChangedCommand}"
-                    CommandParameter="{Binding Source={x:Reference SourceSens}, Path=Text}" />
+                    CommandParameter="{Binding Source={x:Reference SourceSens}, Path=.}" />
             </Entry.Behaviors>
         </Entry>
         <CarouselView x:Name="TargetGames"
