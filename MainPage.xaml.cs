@@ -1,16 +1,13 @@
-﻿using AimConverter.Models;
+﻿using AimConverter.ViewModels;
 
 namespace AimConverter
 {
     public partial class MainPage : ContentPage
     {
-        public IReadOnlyList<GameInfo> Games => AppData.Games;
-
-        public MainPage()
+        public MainPage(MainViewModel viewModel)
         {
             InitializeComponent();
-            BindingContext = this;
+            BindingContext = viewModel;
         }
     }
-
 }
