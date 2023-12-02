@@ -18,38 +18,6 @@
         </HorizontalStackLayout>
     </Shell.TitleView>
     <VerticalStackLayout>
-        <!--
-            <CarouselView
-            ItemsSource="{Binding Games}"
-            HorizontalScrollBarVisibility="Never"
-            Loop="False">
-            <CarouselView.ItemsLayout>
-                <LinearItemsLayout
-                    SnapPointsType="MandatorySingle"
-                    Orientation="Horizontal" />
-            </CarouselView.ItemsLayout>
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <views:GameInfoView
-                        Margin="0, 10, 0, 0" />
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
-            -->
-        <Entry x:Name="SourceSens"
-               Keyboard="Numeric"
-               Placeholder="Convert From Sensitivity"
-               HorizontalOptions="Fill"
-               HorizontalTextAlignment="Center"
-               Margin="0, 40, 0, 40">
-            <Entry.Behaviors>
-                <toolkit:EventToCommandBehavior
-                    EventName="TextChanged"
-                    Command="{Binding SourceSensChangedCommand}"
-                    CommandParameter="{Binding Source={x:Reference SourceSens}, Path=Text}" />
-            </Entry.Behaviors>
-        </Entry>
-        <!--
         <CarouselView
             ItemsSource="{Binding Games}"
             HorizontalScrollBarVisibility="Never"
@@ -66,7 +34,35 @@
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
-            -->
+        <Entry x:Name="SourceSens"
+               Keyboard="Numeric"
+               Placeholder="Convert From Sensitivity"
+               HorizontalOptions="Fill"
+               HorizontalTextAlignment="Center"
+               Margin="0, 40, 0, 40">
+            <Entry.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding SourceSensChangedCommand}"
+                    CommandParameter="{Binding Source={x:Reference SourceSens}, Path=Text}" />
+            </Entry.Behaviors>
+        </Entry>
+        <CarouselView
+            ItemsSource="{Binding Games}"
+            HorizontalScrollBarVisibility="Never"
+            Loop="False">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout
+                    SnapPointsType="MandatorySingle"
+                    Orientation="Horizontal" />
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <views:GameInfoView
+                        Margin="0, 10, 0, 0" />
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
         <Label
             Text="{Binding TargetSens}"
             HorizontalTextAlignment="Center"
@@ -74,5 +70,4 @@
             FontSize="40"
             FontAttributes="Bold" />
     </VerticalStackLayout>
-
 </ContentPage>
