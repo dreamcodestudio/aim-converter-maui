@@ -18,10 +18,16 @@
         </HorizontalStackLayout>
     </Shell.TitleView>
     <VerticalStackLayout>
-        <CarouselView
-            ItemsSource="{Binding Games}"
-            HorizontalScrollBarVisibility="Never"
-            Loop="False">
+        <CarouselView x:Name="SourceGames"
+                      ItemsSource="{Binding Games}"
+                      HorizontalScrollBarVisibility="Never"
+                      Loop="False">
+            <CarouselView.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="CurrentItemChanged"
+                    Command="{Binding SourceGameChangedCommand}"
+                    CommandParameter="{Binding Source={x:Reference SourceGames}, Path=CurrentItem}" />
+            </CarouselView.Behaviors>
             <CarouselView.ItemsLayout>
                 <LinearItemsLayout
                     SnapPointsType="MandatorySingle"
@@ -47,10 +53,16 @@
                     CommandParameter="{Binding Source={x:Reference SourceSens}, Path=Text}" />
             </Entry.Behaviors>
         </Entry>
-        <CarouselView
-            ItemsSource="{Binding Games}"
-            HorizontalScrollBarVisibility="Never"
-            Loop="False">
+        <CarouselView x:Name="TargetGames"
+                      ItemsSource="{Binding Games}"
+                      HorizontalScrollBarVisibility="Never"
+                      Loop="False">
+            <CarouselView.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="CurrentItemChanged"
+                    Command="{Binding TargetGameChangedCommand}"
+                    CommandParameter="{Binding Source={x:Reference TargetGames}, Path=CurrentItem}" />
+            </CarouselView.Behaviors>
             <CarouselView.ItemsLayout>
                 <LinearItemsLayout
                     SnapPointsType="MandatorySingle"
