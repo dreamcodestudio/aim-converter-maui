@@ -1,4 +1,5 @@
-﻿using AimConverter.ViewModels;
+﻿using AimConverter.Services;
+using AimConverter.ViewModels;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
@@ -19,6 +20,7 @@ namespace AimConverter
                 });
 
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<ISensitivityService, SensitivityService>();
             builder.Services.AddSingleton<MainViewModel>();
 
 #if DEBUG
