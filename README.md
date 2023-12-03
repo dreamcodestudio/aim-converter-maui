@@ -7,4 +7,4 @@ Reimplementation of [Game Aim Converter](https://apps.apple.com/us/app/game-aim-
 # 📋 Targeting platforms
 
 - Android
-- iOS
+- iOS (regression in .NET 8.0)
