@@ -17,7 +17,7 @@
                 HorizontalTextAlignment="Center"
                 TextColor="White"
                 Margin="0, 20, 0, 0"
-                FontSize="Medium" />
+                FontSize="30" />
         </VerticalStackLayout>
     </Frame>
 </ContentView>

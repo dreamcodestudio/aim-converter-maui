@@ -5,6 +5,7 @@
              xmlns:views="clr-namespace:AimConverter.Views"
              x:Class="AimConverter.MainPage"
              Shell.BackgroundColor="Black"
+             HideSoftInputOnTapped="True"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewmodel="clr-namespace:AimConverter.ViewModels"
              x:DataType="viewmodel:MainViewModel">
@@ -17,11 +18,23 @@
                 FontSize="Medium" />
         </HorizontalStackLayout>
     </Shell.TitleView>
-    <VerticalStackLayout>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent" />
+    </ContentPage.Behaviors>
+    <Grid
+        Margin="0, 10, 0, 0"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <CarouselView x:Name="SourceGames"
+                      Grid.Row="0"
                       ItemsSource="{Binding Games}"
                       HorizontalScrollBarVisibility="Never"
-                      Loop="False">
+                      Loop="True">
             <CarouselView.Behaviors>
                 <toolkit:EventToCommandBehavior
                     EventName="CurrentItemChanged"
@@ -41,22 +54,29 @@
             </CarouselView.ItemTemplate>
         </CarouselView>
         <Entry x:Name="SourceSens"
+               Grid.Row="1"
                Keyboard="Numeric"
                Placeholder="Convert From Sensitivity"
                HorizontalOptions="Fill"
                HorizontalTextAlignment="Center"
+               FontSize="22"
                Margin="0, 40, 0, 40">
             <Entry.Behaviors>
                 <toolkit:EventToCommandBehavior
-                    EventName="Completed"
+                    EventName="TextChanged"
                     Command="{Binding SourceSensChangedCommand}"
+                    CommandParameter="{Binding Source={x:Reference SourceSens}, Path=.}" />
+                <toolkit:EventToCommandBehavior
+                    EventName="Completed"
+                    Command="{Binding SourceSensUnfocusedCommand}"
                     CommandParameter="{Binding Source={x:Reference SourceSens}, Path=.}" />
             </Entry.Behaviors>
         </Entry>
         <CarouselView x:Name="TargetGames"
+                      Grid.Row="2"
                       ItemsSource="{Binding Games}"
                       HorizontalScrollBarVisibility="Never"
-                      Loop="False">
+                      Loop="True">
             <CarouselView.Behaviors>
                 <toolkit:EventToCommandBehavior
                     EventName="CurrentItemChanged"
@@ -76,10 +96,11 @@
             </CarouselView.ItemTemplate>
         </CarouselView>
         <Label
+            Grid.Row="3"
             Text="{Binding TargetSens}"
             HorizontalTextAlignment="Center"
-            Margin="0, 60, 0, 0"
+            VerticalTextAlignment="Center"
             FontSize="40"
             FontAttributes="Bold" />
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

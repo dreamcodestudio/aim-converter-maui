@@ -40,13 +40,18 @@ namespace AimConverter.ViewModels
         [RelayCommand]
         private void OnSourceSensChanged(Entry entry)
         {
-            entry.Unfocus();
             if (string.IsNullOrWhiteSpace(entry.Text))
                 return;
             if (!float.TryParse(entry.Text, out var sourceSens))
                 return;
             _sourceSens = sourceSens;
             Refresh();
+        }
+
+        [RelayCommand]
+        private void OnSourceSensUnfocused(Entry entry)
+        {
+            entry.Unfocus();
         }
 
         private void Refresh()
